@@ -18,8 +18,11 @@ let personagem = {
     largura: 50,
     altura: 50,
     velocidade_y: 0,
-    pulando: false
+    velocidade_x: 0,
+    pulando: false,
+    imagem: new Image()
 };
+personagem.imagem.src='./pou.png'
 
 let obstaculo = {
     x: canvas.width - 100,
@@ -31,14 +34,16 @@ let obstaculo = {
 
 // Função para desenhar o personagem
 function desenharPersonagem() {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(
+    // ctx.fillStyle = 'red';
+    // ctx.fillRect()
+    ctx.drawImage (
+        personagem.imagem,
         personagem.x,
         personagem.y,
         personagem.largura,
         personagem.altura
-    );
-}
+    )
+};
 
 // Função para atualizar a posição do personagem
 function atualizaPersonagem() {
