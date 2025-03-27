@@ -14,25 +14,36 @@
 // console.log(pessoa2)
 
 class Veiculo {
+    #velocidade
     constructor(tipo, marca, cor, velocidade, passageiros){
         this.tipo = tipo;
         this.marca = marca;
         this.cor = cor;
-        this.velocidade = velocidade;
+        this.#velocidade = velocidade;
         this.passageiros = passageiros
     }
     acelerar () {
-        this.velocidade += 10
+        this.#velocidade += 10
         console.log('vrum vrum')
     }
     freiar () {
-        this.velocidade -= 5
+        this.#velocidade -= 5
         console.log('niiiiiiiiii')
     }
     apresentar() {
-        console.log(`O ${this.tipo} de marca ${this.marca}esta a ${this.velocidade} km/h`)
+        console.log(`O ${this.tipo} de marca ${this.marca} esta a ${this.#velocidade} km/h`)
     }
-
+    get velocidade (){
+        return this.#velocidade
+    }
+    set velocidade (valor){
+        if (valor < 0){
+            console.log('erro, o valor não pode ser menor que 0')
+        } else {
+            this.#velocidade += valor
+        }
+        this.#velocidade += valor
+    }
 
 }
 
@@ -70,6 +81,5 @@ carro1.acelerar()
 carro1.apresentar()
 carro1.freiar ()
 carro1.apresentar()
-carro2.aprsentar ()
 barco.acelerar ()
 barco.apresentar ()
